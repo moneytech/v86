@@ -137,7 +137,7 @@ clean:
 	$(MAKE) -C $(NASM_TEST_DIR) clean
 
 run:
-	python2 -m SimpleHTTPServer 2> /dev/null
+	python3 -m http.server 2> /dev/null
 	#sleep 1
 	#$(BROWSER) http://localhost:8000/index.html &
 
@@ -152,7 +152,7 @@ update_version:
 
 
 $(CLOSURE):
-	wget -P $(CLOSURE_DIR) http://dl.google.com/closure-compiler/compiler-latest.zip
+	wget -P $(CLOSURE_DIR) https://dl.google.com/closure-compiler/compiler-latest.zip
 	unzip -d closure-compiler $(CLOSURE_DIR)/compiler-latest.zip \*.jar
 	mv $(CLOSURE_DIR)/*.jar $(CLOSURE)
 	rm $(CLOSURE_DIR)/compiler-latest.zip
